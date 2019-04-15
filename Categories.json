@@ -7,6 +7,11 @@
           "sound": "roar",
           "kind": "mammal"
         },
+        "armenian Muflon": {
+          "name": "lion",
+          "sound": "roar",
+          "kind": "mammal"
+        },
         "cow": {
           "name": "cow",
           "sound" : "moo",
