@@ -7,8 +7,8 @@
           "sound": "roar",
           "kind": "mammal"
         },
-        "armenian Muflon": {
-          "name": "lion",
+        "armenian_muflon": {
+          "name": "Armenian Muflon",
           "sound": "roar",
           "kind": "mammal"
         },
