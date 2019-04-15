@@ -90,7 +90,7 @@
         "clownfish":{
           "name": "clownfish",
           "sound": "hum",
-          "kind": "fish",
+          "kind": "fish"
         },
         "blue_tang": {
           "name": "blue tang",
