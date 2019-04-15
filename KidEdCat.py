@@ -13,7 +13,7 @@ def loadCateg():
     return categ
 
 def AskToChooseACateg(categ):
-    print ("\nDear user, please choose a category from", (", ").join(categ.keys()))
+    print ("\nDear user, please choose a category from", (": ").join(categ.keys()))
     chosenCateg = input("Categroy:")
 
     return chosenCateg
@@ -61,19 +61,25 @@ def randomCategKey(chosenCateg, categ):
             break
 
         elif chosenCateg == "numbers":
-            print("\nHow many numbers do you want to learn today?")
             while True:
-                number = int(input("Number of numbers you want to learn today:"))
-                if number < 10:
-                    break
+                number = input("Number of numbers you want to learn today:")
+                if (number.isnumeric()):
+                    number = int(number)
+                    if number < 10:
+                        break
+                    else:
+                        print("oops!,try again!")
                 else:
-                    print("oops!,try again!")
-            yourchoices = random.choices(file["categories"]["numbers"], k=number)
-            print(yourchoices)
+                    print("Please insert numbers only")
+            numberlist = []
+            for key in file["categories"]["numbers"][0].keys():
+                numberlist.append(key)
+            yourchoices = random.choices(numberlist, k=number)
+            for number in yourchoices:
+                print(number, " - ", file["categories"]["numbers"][0][number]["name"])
             break
-
         else:
-            print("Oh wait you chose wrong!")
+            print("Oh wait ynumou chose wrong!")
             chosenCateg = AskToChooseACateg(categ)
 
 
