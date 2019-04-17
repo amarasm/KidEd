@@ -1,4 +1,4 @@
-#ToDo - Please insert your story here:
+As a user I can choose a category and based on what I’ve chosen I will be able to learn it.
 
 
 import json
