@@ -1,3 +1,5 @@
+#User_Story: The administrator can add new categories to the json file!
+
 import json
 
 def loadCateg():
