@@ -9,12 +9,16 @@ def loadCateg():
     return categ
 
 def showPrimaryColors(categ):
-
-    for color,data in categ.items():
-        if data["isPrimaryColor"] == True:
-            print(color + " is a primary color")
+    while True:
+        if (input("Dear user do you want to learn the primary colors?") != "yes"):
+            print("Okay!If you change your mind visit again!:D")
+            break
         else:
-            print("the color " + color + " is not a primary color")
+            for color,data in categ.items():
+                if data["isPrimaryColor"] == True:
+                    print(color + " is a primary color")
+                else:
+                    print("the color " + color + " is not a primary color")
 
 
 def main():
