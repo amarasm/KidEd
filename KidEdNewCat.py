@@ -1,4 +1,4 @@
-#User_Story: The administrator can add new categories to the json file!
+#User Story 2: The administrator can add new categories to the json file!
 
 import json
 
