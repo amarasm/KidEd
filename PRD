@@ -15,6 +15,6 @@ User Need: User (the parents) need free time to do their work.
 Resolution: KidEd will occupy the child and entertain them in the funnest way possible.
 
 User Stories:
-As a user I can specify my age so if it’s more than 6 I will be informed that this app is not for my age.
 As a user I can choose a category and based on what I’ve chosen I will be able to learn it.
-As a user I can choose the topic from the category I’ve chosen.
+As an administrator I can add new categories to the json file.
+As a user I can learn which colors are primary colors and which are not.
