@@ -1,3 +1,5 @@
+#User Story 3: As a user I can learn which colors are primary colors and which are not!
+
 import json
 
 def loadCateg():
