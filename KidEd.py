@@ -4,10 +4,15 @@ import json
 import random
 
 
+import json
+import random
+
+
 def finalQuestion():
     while True:
         question = input("Dear user do you want to exit the app or continue it? If you want to exit type exit, if not type continue!")
         if question == "exit":
+            print("\nThank you for using our app! :)")
             break
         elif question == "continue":
             setUpGame()
@@ -15,7 +20,7 @@ def finalQuestion():
             print("You either had a typo or you chose incorrectly. Please try again")
 
 def setUpGame():
-    print("Dear user do you want to start learning or you want to make some changes in the categories?")
+    print("Dear user do you want to start learning or you want to make some changes in the categories?\nto start searning type 1 and to make changes type 2")
     while True:
         choiceOfTheUser = int(input("1-Start learning" + "\n2-Make changes"))
         if choiceOfTheUser ==1:
@@ -142,6 +147,28 @@ def setUpGame():
                         for number in yourchoices:
                             print(number, " - ", file["categories"]["numbers"][number]["name"])
                         break
+                    elif chosenCateg in categ.keys():
+                        LengthOfDefault = len(categ[chosenCateg].items())
+                        print("\nHow many ", chosenCateg, " do you want to learn today?Your maximum is ",
+                              LengthOfDefault)
+                        while True:
+                            number = input("input the number here:")
+                            if number.isnumeric():
+                                number = int(number)
+                                if number <= (LengthOfDefault):
+                                    break
+                                else:
+                                    print("oops!You have to type a number from 1 to ", LengthOfDefault,
+                                          "!Now try again!")
+                            else:
+                                print("Please insert numbers only")
+                        numberlist = []
+                        for key, item in categ[chosenCateg].items():
+                            numberlist.append(key)
+                        yourchoices = random.choices(numberlist, k=number)
+                        for number in yourchoices:
+                            print(number, " - ", file["categories"][chosenCateg][number]["name"])
+                        break
                     else:
                         print("Oh wait you chose wrong!")
                         chosenCateg = AskToChooseACateg(categ)
@@ -208,3 +235,4 @@ def main():
     startGame = setUpGame()
 
 main()
+
