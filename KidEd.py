@@ -1,8 +1,5 @@
 #Final app!
 
-import json
-import random
-
 
 import json
 import random
