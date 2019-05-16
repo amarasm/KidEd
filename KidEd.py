@@ -7,7 +7,7 @@ import random
 
 def finalQuestion():
     while True:
-        question = input("Dear user do you want to exit the app or continue it? If you want to exit type exit, if not type continue!")
+        question = input("\nDear user do you want to exit the app or continue it? If you want to exit type exit, if not type continue!")
         if question == "exit":
             print("\nThank you for using our app! :)")
             break
@@ -17,10 +17,10 @@ def finalQuestion():
             print("You either had a typo or you chose incorrectly. Please try again")
 
 def setUpGame():
-    print("Dear user do you want to start learning or you want to make some changes in the categories?\nto start searning type 1 and to make changes type 2")
+    print("\nDear user, this application is for kids of age 3 to 6.\nBefore we start, let me know what you want to do first!\nDo you want to start learning or to make some changes in the categories?")
     while True:
-        choiceOfTheUser = int(input("1-Start learning" + "\n2-Make changes"))
-        if choiceOfTheUser ==1:
+        choiceOfTheUser = int(input("1-Start learning" + "\n2-Make changes\ntype 1 to start learning and type 2 to make changes!"))
+        if choiceOfTheUser == 1:
             def loadCateg():
                 with open('Categories.json') as data_file:
                     file = json.load(data_file)
@@ -86,15 +86,20 @@ def setUpGame():
 
                         def showPrimaryColors(categ):
                             while True:
-                                if (input("Dear user do you want to learn the primary colors?") != "yes"):
+                                learnPrimeColor = (input("Do you want to learn the primary colors too?"))
+                                if learnPrimeColor == "no":
                                     print("Okay!If you change your mind visit again!:D")
                                     break
+                                elif learnPrimeColor != "yes":
+                                    print("I think you had a typo! Try again")
                                 else:
                                     for color, data in categ.items():
                                         if data["isPrimaryColor"] == True:
                                             print(color + " is a primary color")
                                         else:
                                             print("the color " + color + " is not a primary color")
+                                    print("\nAmazing! You have learned the primary colors too! Good Job :)")
+                                    break
 
                         def main():
                             categorySetup = loadCateg()
@@ -167,7 +172,7 @@ def setUpGame():
                             print(number, " - ", file["categories"][chosenCateg][number]["name"])
                         break
                     else:
-                        print("Oh wait you chose wrong!")
+                        print("Oh wait your choice is not in the categories!Please try again :)")
                         chosenCateg = AskToChooseACateg(categ)
 
             def main():
@@ -176,7 +181,6 @@ def setUpGame():
                 randomCategKey(chosenCategory, categorySetup)
 
             main()
-            finalQuestion()
             break
         elif choiceOfTheUser == 2:
             def loadCateg():
@@ -190,8 +194,7 @@ def setUpGame():
             def additionToCateg(file):
 
                 while True:
-                    Addition = input(
-                        "\nDear programmer do you want to add another category to the current one? Please say either yes or no")
+                    Addition = input("\nDear programmer do you want to add another category to the current one? Please say either yes or no")
                     if Addition == "no":
                         print("okay!")
                         break
@@ -200,9 +203,11 @@ def setUpGame():
                         file["categories"][addToCateg] = {}
                         newCategory = file["categories"][addToCateg]
                         while True:
-                            if (input(
-                                    "Do you want to add topic to the category: " + addToCateg + "? say either yes or no!") != "yes"):
+                            addingTopic = input("Do you want to add topic to the category: " + addToCateg + "? say either yes or no!")
+                            if addingTopic == "no":
                                 break
+                            elif addingTopic != "yes":
+                                print("you had a typo I guess")
                             else:
                                 newTopic = {}
                                 newTopicKey = input("Please tell me the key")
@@ -219,11 +224,10 @@ def setUpGame():
                 loadCategory = loadCateg()
                 printLengthOfTheCategory(loadCategory)
                 newFile = additionToCateg(loadCategory)
-
                 printLengthOfTheCategory(newFile)
 
             main()
-            finalQuestion()
+
             break
         else:
             print("\nJust choose between 1 and 2 please!")
@@ -231,5 +235,8 @@ def setUpGame():
 def main():
     startGame = setUpGame()
 
+
 main()
+finalQuestion()
+
 
